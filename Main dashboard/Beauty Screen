@@ -1,0 +1,1262 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hexagon/hexagon.dart';
+import 'dashboard.dart';
+
+void main() {
+  runApp(const BeautyScreen());
+}
+class BeautyScreen extends StatelessWidget {
+  const BeautyScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Dashboard',
+      theme: ThemeData(primarySwatch: Colors.yellow),
+      home:  const DashBoardScreen(),
+    );
+  }
+}
+
+class DashBoardScreen extends StatelessWidget {
+  const DashBoardScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: const ListTile(
+            title: Text(
+              "SELECT",
+              style: TextStyle(fontSize: 12),
+            ),
+            subtitle: Text(
+              "INSIDER>",
+              style:
+              TextStyle(color: Colors.amber, fontWeight: FontWeight.bold),
+            ),
+          ),
+          leading:  Image.asset(
+              "assets/images/Crown.jpg",
+            ),
+
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.search),
+              color: Colors.black,
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.notifications_none_sharp),
+              color: Colors.black,
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.favorite_border_outlined),
+              color: Colors.black,
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.shopping_bag_outlined),
+              color: Colors.black,
+            )
+          ],
+        ),
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [const SizedBox(height: 12),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Card(
+                    child: SizedBox(
+                      width: 170,
+                      height: 40,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.purple,
+                          shadowColor: Colors.greenAccent,
+                          elevation: 2,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(32.0)),
+                          //minimumSize: Size(100, 40), //////// HERE
+                        ),
+                        onPressed: () { Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Dashboard()),
+                        );},
+                        child: const Text(
+                          'Fashion',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Card(
+                    child: SizedBox(
+                      width: 170,
+                      height: 40,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.green,
+                          shadowColor: Colors.greenAccent,
+                          elevation: 2,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(32.0)),
+                          //minimumSize: Size(100, 40), //////// HERE
+                        ),
+                        onPressed: () {Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const BeautyScreen()),
+                        );},
+                        child: const Text(
+                          'Beauty',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              Column(
+                  children: [
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Container(
+                        height: 100,
+                        width: 625,
+                        color: Colors.red,
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 0, 0, 9),
+                              child: Image.asset(
+                                'assets/images/ee-r.png',
+                                height: 100,
+                                width: 90,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 0, 190, 0),
+                              child: Row(
+                                children: [
+                                  const VerticalDivider(
+                                    color: Colors.white,
+                                    thickness: 0.9,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(6, 13, 0, 0),
+                                    child: Column(
+                                      children: [
+                                        const Text(
+                                          "CURTAIN",
+                                          style: TextStyle(
+                                              color: Colors.yellowAccent,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        const Text(
+                                          "RAISER",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        Container(
+                                          height: 23,
+                                          width: 75,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(6),
+                                            color: Colors.black,
+                                          ),
+                                          child: Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                "assets/images/dot-small.svg",
+                                                height: 20,
+                                                width: 25,
+                                                color: Colors.green,
+                                              ),
+                                              const Text(
+                                                  "Live Now",
+                                                  style: TextStyle(
+                                                      color: Colors.yellowAccent,
+                                                      fontSize: 12,
+                                                      fontWeight: FontWeight.bold),
+                                                ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  const Padding(
+                                    padding: EdgeInsets.fromLTRB(5, 20, 0, 20),
+                                    child: VerticalDivider(
+                                      color: Colors.white,
+                                      thickness: 0.9,
+                                    ),
+                                  ),
+                                  Column(
+                                    children: const [
+                                      Padding(
+                                        padding:
+                                        EdgeInsets.fromLTRB(0, 13, 80, 0),
+                                        child: Text(
+                                          "Shop Sale Prices",
+                                          style: TextStyle(
+                                              color: Colors.yellowAccent,
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding:
+                                        EdgeInsets.fromLTRB(0, 0, 61, 0),
+                                        child: Text(
+                                          "Before The Sale Starts",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding:
+                                        EdgeInsets.fromLTRB(0, 7, 40, 0),
+                                        child: Text('SELECT STYLES | LIMITED STOCKS',
+                                            style: TextStyle(
+                                                fontSize: 11,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold)),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: 250,
+                      width: 650,color: Colors.black12,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                const SizedBox(
+                                  width: 6,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(13, 0, 0, 0),
+                                  child: Column(
+                                    children: [
+                                      HexagonWidget.pointy(
+                                          width: 70,
+                                          color: Colors.white70,
+                                          elevation: 15,
+                                          child: Image.asset(
+                                              "assets/images/makeup.jpg")),
+                                      const Text(
+                                        'MAKEUP',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 6,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(17, 0, 0, 0),
+                                  child: Column(
+                                    children: [
+                                      HexagonWidget.pointy(
+                                          width: 70,
+                                          color: Colors.white70,
+                                          elevation: 4,
+                                          child: Image.asset(
+                                              "assets/images/skincare.jpg")),
+                                      const Text(
+                                        'SKINCARE',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 1,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
+                                  child: Column(
+                                    children: [
+                                      HexagonWidget.pointy(
+                                          width: 70,
+                                          color: Colors.white70,
+                                          elevation: 4,
+                                          child: Image.asset(
+                                              "assets/images/perfume.jpg")),
+                                      const Text('FRAGRANCES',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold)),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 6,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+                                  child: Column(
+                                    children: [
+                                      HexagonWidget.pointy(
+                                          width: 70,
+                                          color: Colors.white70,
+                                          elevation: 4,
+                                          child:
+                                          Image.asset("assets/images/make.jpg")),
+                                      const Text('HAIR CARE',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold)),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+                              child: Row(
+                                children: [
+                                  const SizedBox(
+                                    width: 6,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+                                    child: Column(
+                                      children: [
+                                        HexagonWidget.pointy(
+                                            width: 70,
+                                            color: Colors.white70,
+                                            elevation: 4,
+                                            child: Image.asset(
+                                              "assets/images/straightener.jpg",
+                                              height: 70,
+                                              width: 70,
+                                            )),
+                                        const Text('APPLIANCES',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold)),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 6,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                    child: Column(
+                                      children: [
+                                        HexagonWidget.pointy(
+                                            width: 70,
+                                            color: Colors.white70,
+                                            elevation: 4,
+                                            child: Image.asset(
+                                                "assets/images/bath.jpg")),
+                                        const Text('BATH & BODY',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold)),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 6,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+                                    child: Column(
+                                      children: [
+                                        HexagonWidget.pointy(
+                                            width: 70,
+                                            color: Colors.white70,
+                                            elevation: 4,
+                                            child: Image.asset(
+                                                "assets/images/grooming.jpg")),
+                                        const Text('GROOMING',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold)),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 6,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                                    child: Column(
+                                      children: [
+                                        HexagonWidget.pointy(
+                                            width: 70,
+                                            color: Colors.white70,
+                                            elevation: 4,
+                                            child: Image.asset(
+                                                "assets/images/shampoo.jpg")),
+                                        const Text('SALON',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold)),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Container(
+                        height: 300,
+                        width: 1200,
+                        color: Colors.red,
+                        child: Row(
+                          children: [
+                            Column(
+                              children: [
+                                Stack(
+                                  children: <Widget>[
+                                    Container(
+                                        alignment: Alignment.center,
+                                        child: Image.asset(
+                                          "assets/images/Olay-Products.jpg",
+                                          height: 300,
+                                          width: 400,
+                                          fit: BoxFit.cover,
+                                        )),
+                                    Container(
+                                      alignment: Alignment.bottomLeft,
+                                      child: Column(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.fromLTRB(
+                                                0, 0, 305, 68),
+                                            child: Container(
+                                              height: 140,
+                                              width: 80,
+                                              color: Colors.black,
+                                              child: Column(
+                                                children: [
+                                                  Container(
+                                                    color: Colors.black,
+                                                    child: Image.asset(
+                                                      "assets/images/ee-r.png",
+                                                    ),
+                                                  ),
+                                                  const Text(
+                                                    "CURTAIN",
+                                                    style: TextStyle(
+                                                        color: Colors.white),
+                                                  ),
+                                                  const Text(
+                                                    "RAISER",
+                                                    style: TextStyle(
+                                                        color: Colors.yellow),
+                                                  ),
+                                                  const Text(
+                                                    "TITLE SPONSOR",
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 8),
+                                                  ),
+                                                  const Text(
+                                                    "LAKME",
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontStyle: FontStyle.italic),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          const Padding(
+                                            padding: EdgeInsets.fromLTRB(
+                                                0, 0, 200, 0),
+                                            child: Text(
+                                              "Best Of Personal Care",
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 20,
+                                                  backgroundColor: Colors.white),
+                                            ),
+                                          ),
+                                          const Padding(
+                                            padding: EdgeInsets.fromLTRB(
+                                                0, 0, 250, 0),
+                                            child: Text(
+                                              "20-50% OFF",
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 25,
+                                                  fontWeight: FontWeight.bold,
+                                                  backgroundColor: Colors.white),
+                                            ),
+                                          ),
+                                          Container(
+                                            color: Colors.white54,
+                                            height: 40,
+                                            width: 390,
+                                            child: Padding(
+                                              padding: const EdgeInsets.fromLTRB(
+                                                  0, 4, 0, 0),
+                                              child: Row(
+                                                children: [
+                                                  const Text(
+                                                    "OLAY",
+                                                    style: TextStyle(
+                                                      color: Colors.black,
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: 25,
+                                                      decoration:
+                                                      TextDecoration.underline,
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                    const EdgeInsets.fromLTRB(
+                                                        9, 0, 0, 0),
+                                                    child: Image.asset(
+                                                      "assets/images/gilletter.png",
+                                                      height: 70,
+                                                      width: 70,
+                                                    ),
+                                                  ),
+                                                  const Padding(
+                                                    padding: EdgeInsets.fromLTRB(19, 0, 0, 0),
+                                                    child: Text(
+                                                      "& more",
+                                                      style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontWeight: FontWeight.bold,
+                                                          fontSize: 10),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                    const EdgeInsets.fromLTRB(
+                                                        78, 0, 0, 0),
+                                                    child: Container(
+                                                      height: 30,
+                                                      width: 100,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(6),
+                                                        color: Colors.black,
+                                                      ),
+                                                      child: Row(
+                                                        children: [
+                                                          const Padding(
+                                                            padding: EdgeInsets.fromLTRB(5, 5, 0, 4),
+                                                            child: Text(
+                                                              "Shop Now",
+                                                              style: TextStyle(
+                                                                color: Colors.white,
+                                                                fontWeight:
+                                                                FontWeight.bold,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding: const EdgeInsets
+                                                                .fromLTRB(4, 0, 0, 0),
+                                                            child: Image.asset(
+                                                              "assets/images/gtc3.png",
+                                                              color: Colors.white,
+                                                              height: 20,
+                                                              width: 20,
+                                                            ),
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Stack(
+                                  children: <Widget>[
+                                    Container(
+                                        alignment: Alignment.center,
+                                        child: Image.asset(
+                                          "assets/images/Olay-Products.jpg",
+                                          height: 300,
+                                          width: 400,
+                                          fit: BoxFit.cover,
+                                        )),
+                                    Container(
+                                      alignment: Alignment.bottomLeft,
+                                      child: Column(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.fromLTRB(
+                                                0, 0, 305, 68),
+                                            child: Container(
+                                              height: 140,
+                                              width: 80,
+                                              color: Colors.black,
+                                              child: Column(
+                                                children: [
+                                                  Container(
+                                                    color: Colors.black,
+                                                    child: Image.asset(
+                                                      "assets/images/ee-r.png",
+                                                    ),
+                                                  ),
+                                                  const Text(
+                                                    "CURTAIN",
+                                                    style: TextStyle(
+                                                        color: Colors.white),
+                                                  ),
+                                                  const Text(
+                                                    "RAISER",
+                                                    style: TextStyle(
+                                                        color: Colors.yellow),
+                                                  ),
+                                                  const Text(
+                                                    "TITLE SPONSOR",
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 8),
+                                                  ),
+                                                  const Text(
+                                                    "LAKME",
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontStyle: FontStyle.italic),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          const Padding(
+                                            padding: EdgeInsets.fromLTRB(0, 0, 200, 0),
+                                            child: Text(
+                                              "Best Of Personal Care",
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 20,
+                                                  backgroundColor: Colors.white),
+                                            ),
+                                          ),
+                                          const Padding(
+                                            padding: EdgeInsets.fromLTRB(0, 0, 250, 0),
+                                            child: Text(
+                                              "20-50% OFF",
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 25,
+                                                  fontWeight: FontWeight.bold,
+                                                  backgroundColor: Colors.white),
+                                            ),
+                                          ),
+                                          Container(
+                                            color: Colors.white54,
+                                            height: 40,
+                                            width: 390,
+                                            child: Padding(
+                                              padding: const EdgeInsets.fromLTRB(
+                                                  0, 4, 0, 0),
+                                              child: Row(
+                                                children: [
+                                                  const Text(
+                                                    "OLAY",
+                                                    style: TextStyle(
+                                                      color: Colors.black,
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: 25,
+                                                      decoration:
+                                                      TextDecoration.underline,
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                    const EdgeInsets.fromLTRB(
+                                                        9, 0, 0, 0),
+                                                    child: Image.asset(
+                                                      "assets/images/gilletter.png",
+                                                      height: 70,
+                                                      width: 70,
+                                                    ),
+                                                  ),
+                                                  const Padding(
+                                                    padding: EdgeInsets.fromLTRB(19, 0, 0, 0),
+                                                    child: Text(
+                                                      "& more",
+                                                      style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontWeight: FontWeight.bold,
+                                                          fontSize: 10),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                    const EdgeInsets.fromLTRB(
+                                                        78, 0, 0, 0),
+                                                    child: Container(
+                                                      height: 30,
+                                                      width: 100,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(6),
+                                                        color: Colors.black,
+                                                      ),
+                                                      child: Row(
+                                                        children: [
+                                                          const Padding(
+                                                            padding: EdgeInsets.fromLTRB(5, 5, 0, 4),
+                                                            child: Text(
+                                                              "Shop Now",
+                                                              style: TextStyle(
+                                                                color: Colors.white,
+                                                                fontWeight:
+                                                                FontWeight.bold,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding: const EdgeInsets
+                                                                .fromLTRB(4, 0, 0, 0),
+                                                            child: Image.asset(
+                                                              "assets/images/gtc3.png",
+                                                              color: Colors.white,
+                                                              height: 20,
+                                                              width: 20,
+                                                            ),
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Stack(
+                                  children: <Widget>[
+                                    Container(
+                                        alignment: Alignment.center,
+                                        child: Image.asset(
+                                          "assets/images/Olay-Products.jpg",
+                                          height: 300,
+                                          width: 400,
+                                          fit: BoxFit.cover,
+                                        )),
+                                    Container(
+                                      alignment: Alignment.bottomLeft,
+                                      child: Column(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.fromLTRB(
+                                                0, 0, 305, 68),
+                                            child: Container(
+                                              height: 140,
+                                              width: 80,
+                                              color: Colors.black,
+                                              child: Column(
+                                                children: [
+                                                  Container(
+                                                    color: Colors.black,
+                                                    child: Image.asset(
+                                                      "assets/images/ee-r.png",
+                                                    ),
+                                                  ),
+                                                  const Text(
+                                                    "CURTAIN",
+                                                    style: TextStyle(
+                                                        color: Colors.white),
+                                                  ),
+                                                  const Text(
+                                                    "RAISER",
+                                                    style: TextStyle(
+                                                        color: Colors.yellow),
+                                                  ),
+                                                  const Text(
+                                                    "TITLE SPONSOR",
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 8),
+                                                  ),
+                                                  const Text(
+                                                    "LAKME",
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontStyle: FontStyle.italic),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          const Padding(
+                                            padding: EdgeInsets.fromLTRB(0, 0, 200, 0),
+                                            child: Text(
+                                              "Best Of Personal Care",
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 20,
+                                                  backgroundColor: Colors.white),
+                                            ),
+                                          ),
+                                          const Padding(
+                                            padding:EdgeInsets.fromLTRB(0, 0, 250, 0),
+                                            child: Text(
+                                              "20-50% OFF",
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 25,
+                                                  fontWeight: FontWeight.bold,
+                                                  backgroundColor: Colors.white),
+                                            ),
+                                          ),
+                                          Container(
+                                            color: Colors.white54,
+                                            height: 40,
+                                            width: 390,
+                                            child: Padding(
+                                              padding: const EdgeInsets.fromLTRB(
+                                                  0, 4, 0, 0),
+                                              child: Row(
+                                                children: [
+                                                  const Text(
+                                                    "OLAY",
+                                                    style: TextStyle(
+                                                      color: Colors.black,
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: 25,
+                                                      decoration:
+                                                      TextDecoration.underline,
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                    const EdgeInsets.fromLTRB(
+                                                        9, 0, 0, 0),
+                                                    child: Image.asset(
+                                                      "assets/images/gilletter.png",
+                                                      height: 70,
+                                                      width: 70,
+                                                    ),
+                                                  ),
+                                                  const Padding(
+                                                    padding: EdgeInsets.fromLTRB(19, 0, 0, 0),
+                                                    child: Text(
+                                                      "& more",
+                                                      style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontWeight: FontWeight.bold,
+                                                          fontSize: 10),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                    const EdgeInsets.fromLTRB(
+                                                        78, 0, 0, 0),
+                                                    child: Container(
+                                                      height: 30,
+                                                      width: 100,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(6),
+                                                        color: Colors.black,
+                                                      ),
+                                                      child: Row(
+                                                        children: [
+                                                          const Padding(
+                                                            padding: EdgeInsets
+                                                                .fromLTRB(5, 5, 0, 4),
+                                                            child: Text(
+                                                              "Shop Now",
+                                                              style: TextStyle(
+                                                                color: Colors.white,
+                                                                fontWeight:
+                                                                FontWeight.bold,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding: const EdgeInsets
+                                                                .fromLTRB(4, 0, 0, 0),
+                                                            child: Image.asset(
+                                                              "assets/images/gtc3.png",
+                                                              color: Colors.white,
+                                                              height: 20,
+                                                              width: 20,
+                                                            ),
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                          color: Colors.black,
+                          height: 65,
+                          width: 390,
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(100, 12, 0, 0),
+                            child: Row(
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.fromLTRB(0, 5, 0, 20),
+                                  child: Text(
+                                    "SPONSORED BY",
+                                    style:
+                                    TextStyle(color: Colors.white, fontSize: 12),
+                                  ),
+                                ),
+                                const SizedBox(width: 10),
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(10, 0, 0, 10),
+                                  child: Image.asset("assets/images/Nivea_Logo.png"),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      height: 50,
+                      width: 400,
+                      color: Colors.white,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 0, 0, 8),
+                        child: Row(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                              child: Text(
+                                "BEST IN BEAUTY & GROOMING",
+                                style: TextStyle(
+                                    color: Colors.pink,
+                                    fontSize: 23,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(14, 7, 0, 0),
+                              child: Image.asset(
+                                "assets/images/kp.png",
+                                height: 24,
+                                width: 24,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          Container(
+                            color: Colors.amber,
+                            height: 340,
+                            width: 200,
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 339,
+                                  width: 200,
+                                  color: Colors.pinkAccent,
+                                  child: Row(
+                                      children: [
+                                        Container(
+                                          height: 400,
+                                          width: 200,color: Colors.pinkAccent,
+                                          child: Column(
+                                            children: [
+                                              Image.asset("assets/images/mme3.jpg",fit: BoxFit.cover,
+                                              ),
+                                              SizedBox(height: 80,
+                                                width: 200,
+                                                child: Column(
+                                                    children: [
+                                                      Container(height: 33,width: 190,color: Colors.white,alignment: Alignment.center,
+                                                        child: Image.asset("assets/images/mme5.png",fit: BoxFit.cover,),
+                                                      ),const SizedBox(height: 1,),
+                                                      Container(height: 33,width: 180,color: Colors.white,alignment: Alignment.center,
+                                                        child: const Text(
+                                                          "20-50% OFF",
+                                                          style: TextStyle(
+                                                            color: Colors.black,
+                                                            fontSize: 20,
+                                                            fontWeight: FontWeight.bold,
+                                                            //backgroundColor: Colors.white
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ]
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ]
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            color: Colors.amber,
+                            height: 340,
+                            width: 200,
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 339,
+                                  width: 200,
+                                  color: Colors.pinkAccent,
+                                  child: Row(
+                                      children: [
+                                        Container(
+                                          height: 400,
+                                          width: 200,color: Colors.pinkAccent,
+                                          child: Column(
+                                            children: [
+                                              Image.asset("assets/images/mme3.jpg",fit: BoxFit.cover,
+                                              ),
+                                              SizedBox(height: 80,
+                                                width: 200,
+                                                child: Column(
+                                                    children: [
+                                                      Container(height: 33,width: 190,color: Colors.white,alignment: Alignment.center,
+                                                        child: Image.asset("assets/images/mme5.png",fit: BoxFit.cover,),
+                                                      ),const SizedBox(height: 1,),
+                                                      Container(height: 33,width: 180,color: Colors.white,alignment: Alignment.center,
+                                                        child: const Text(
+                                                          "20-50% OFF",
+                                                          style: TextStyle(
+                                                            color: Colors.black,
+                                                            fontSize: 20,
+                                                            fontWeight: FontWeight.bold,
+                                                            //backgroundColor: Colors.white
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ]
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ]
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            color: Colors.amber,
+                            height: 340,
+                            width: 200,
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 339,
+                                  width: 200,
+                                  color: Colors.pinkAccent,
+                                  child: Row(
+                                      children: [
+                                        Container(
+                                          height: 400,
+                                          width: 200,color: Colors.pinkAccent,
+                                          child: Column(
+                                            children: [
+                                              Image.asset("assets/images/mme3.jpg",fit: BoxFit.cover,
+                                              ),
+                                              SizedBox(height: 80,
+                                                width: 200,
+                                                child: Column(
+                                                    children: [
+                                                      Container(height: 33,width: 190,color: Colors.white,alignment: Alignment.center,
+                                                        child: Image.asset("assets/images/mme5.png",fit: BoxFit.cover,),
+                                                      ),const SizedBox(height: 1,),
+                                                      Container(height: 33,width: 180,color: Colors.white,alignment: Alignment.center,
+                                                        child: const Text(
+                                                          "20-50% OFF",
+                                                          style: TextStyle(
+                                                            color: Colors.black,
+                                                            fontSize: 20,
+                                                            fontWeight: FontWeight.bold,
+                                                            //backgroundColor: Colors.white
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ]
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ]
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            color: Colors.amber,
+                            height: 340,
+                            width: 200,
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 339,
+                                  width: 200,
+                                  color: Colors.pinkAccent,
+                                  child: Row(
+                                      children: [
+                                        Container(
+                                          height: 400,
+                                          width: 200,color: Colors.pinkAccent,
+                                          child: Column(
+                                            children: [
+                                              Image.asset("assets/images/mme3.jpg",fit: BoxFit.cover,
+                                              ),
+                                              SizedBox(height: 80,
+                                                width: 200,
+                                                child: Column(
+                                                    children: [
+                                                      Container(height: 33,width: 190,color: Colors.white,alignment: Alignment.center,
+                                                        child: Image.asset("assets/images/mme5.png",fit: BoxFit.cover,),
+                                                      ),const SizedBox(height: 1,),
+                                                      Container(height: 33,width: 180,color: Colors.white,alignment: Alignment.center,
+                                                        child: const Text(
+                                                          "20-50% OFF",
+                                                          style: TextStyle(
+                                                            color: Colors.black,
+                                                            fontSize: 20,
+                                                            fontWeight: FontWeight.bold,
+                                                            //backgroundColor: Colors.white
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ]
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ]
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ]
+              )
+            ],
+          ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: Colors.red,
+          unselectedItemColor: Colors.black,
+          //selectedItemColor: Colors.red,
+          showSelectedLabels: true,
+          showUnselectedLabels: true,
+          selectedIconTheme: const IconThemeData(color: Colors.lime),
+          unselectedIconTheme: const IconThemeData(color: Colors.white),
+          items: [
+            BottomNavigationBarItem(
+                icon:
+                Image.asset("assets/images/l4.png", height: 40, width: 40),
+                label: "Home"),
+            BottomNavigationBarItem(
+                icon:
+                Image.asset("assets/images/l3.png", height: 40, width: 40),
+                label: "FWD"),
+            BottomNavigationBarItem(
+                icon: Image.asset("assets/images/everyday.png",
+                    height: 40, width: 40),
+                label: "Everyday"),
+            BottomNavigationBarItem(
+                icon: Image.asset("assets/images/explore.jpg",
+                    height: 40, width: 40),
+                label: "Explore"),
+            BottomNavigationBarItem(
+                icon:
+                Image.asset("assets/images/l2.jpg", height: 40, width: 40),
+                label: "Lakshmi"),
+          ],
+        ),
+      ),
+    );
+  }
+}
