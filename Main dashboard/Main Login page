@@ -1,0 +1,124 @@
+import 'dart:async';
+import 'package:flutter/material.dart';
+
+import 'dashboard.dart';
+
+void main() { runApp(MyApp());}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MyHomePage(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  @override
+  SplashScreenState createState() => SplashScreenState();
+}
+class SplashScreenState extends State<MyHomePage> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(const Duration(seconds: 2),
+            ()=>Navigator.pushReplacement(context,
+            MaterialPageRoute(builder:
+                (context) => HomeScreen()
+            )
+        )
+    );
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(child: Image.asset("assets/images/l4.png",height: 80,width: 80,),)
+        ],
+      ),
+    );
+  }
+}
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title:const Text("Login Page"),centerTitle: true,),
+// body: Center(
+// child: Column(
+// mainAxisSize: MainAxisSize.min,
+// children: const [
+// Padding(
+// padding: EdgeInsets.all(15)),
+// TextField(
+// decoration: InputDecoration(
+// border: OutlineInputBorder(),
+// hintText: "Enter the user name",
+// labelText:"User Name",
+// ),
+// ),
+// TextField(
+// decoration: InputDecoration(
+// border: OutlineInputBorder(),
+// hintText: "Enter the password",
+// labelText:"Password",
+// ),
+// ),
+//
+// ],
+// ),
+// ),
+      body: Padding(
+        padding: EdgeInsets.all(15),
+        child: Column(
+          children: <Widget>[
+            Padding(
+                padding: EdgeInsets.all(15),
+                child: Text("Login",
+                    style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 20))),
+            Padding(
+              padding: EdgeInsets.all(15),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: "Ente User Name",
+                  labelText: "UserName",
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(15),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: "Enter the Password",
+                  labelText: "Password",
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(15),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context)=>Dashboard()));
+                },
+// style: ElevatedButton.styleFrom(
+// minimumSize: const Size(double.infinity, double.infinity), // <--- this line helped me
+// ),
+                child: Text("Login"),
+              ),
+            ),
+
+          ],
+        ),
+      ),
+    );
+  }
+}
