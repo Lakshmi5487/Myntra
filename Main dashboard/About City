@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const AboutCity());
+}
+
+class AboutCity extends StatelessWidget {
+  const AboutCity({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+            appBar: AppBar(
+              title: Text('AboutCity '),
+              centerTitle: true,
+              foregroundColor: Colors.black,
+              leading: IconButton(
+                icon: Icon(Icons.arrow_back, color: Colors.black),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+              backgroundColor: Colors.yellow,
+            ),
+            body:
+            Container(
+              height: 200,width: 200,color: Colors.red,
+            )
+        ));
+  }
+}
